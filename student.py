@@ -59,7 +59,8 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         self.to_the_right()
         self.to_the_left()
-        self.cha_cha
+        self.back_it_up()
+        self.hit_the_quan()
         #    self.walk_it_by_yourself()
 
     def to_the_right(self):
@@ -73,13 +74,16 @@ class Piggy(pigo.Pigo):
             self.encL(10)
             self.encB(5)
 
-    def cha_cha(self):
+    def back_it_up(self):
         for x in range(3):
             self.encR(5)
             self.encB(10)
             self.encL(5)
             self.encF(15)
             self.encB(15)
+
+    def hit_the_quan(self):
+        self.servo 90
 
 
 
