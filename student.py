@@ -81,8 +81,6 @@ class Piggy(pigo.Pigo):
             self.encF(15)
             self.encB(15)
 
-    def
-
 
 
     def nav(self):
