@@ -83,7 +83,7 @@ class Piggy(pigo.Pigo):
             self.encB(15)
 
     def hit_the_quan(self):
-        self.servo 90
+        self.servo (90)
 
 
 
