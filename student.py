@@ -62,9 +62,9 @@ class Piggy(pigo.Pigo):
             self.to_the_right()
             self.to_the_left()
             self.back_it_up()
-            self.hit_the_quan()
+            #self.hit_the_quan()
             #    self.walk_it_by_yourself()
-    def is_clear(self):
+    def safety_check(self):
                 """does a 3-point scan around the midpoint, returns false if a test fails"""
                 print("Running the is_clear method.")
                 for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
