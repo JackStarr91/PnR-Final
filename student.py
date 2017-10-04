@@ -70,7 +70,7 @@ class Piggy(pigo.Pigo):
             return False
         self.encR(8)
         self.is_clear()
-            for x in range
+       
         #loop 3 times
         # turn 90 deg
         # scan again
