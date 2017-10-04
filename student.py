@@ -19,7 +19,8 @@ class Piggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 83
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 30
+        self.SAFE_STOP_DIST = 30
+        self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 230
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -57,11 +58,22 @@ class Piggy(pigo.Pigo):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        self.to_the_right()
-        self.to_the_left()
-        self.back_it_up()
-        self.hit_the_quan()
-        #    self.walk_it_by_yourself()
+        if self.safety_check():
+            self.to_the_right()
+            self.to_the_left()
+            self.back_it_up()
+            self.hit_the_quan()
+            #    self.walk_it_by_yourself()
+    def safety_check(self):
+        self.servo(self.MIDPOINT)     # look straight ahead
+        if self.dist() < self.SAFE_STOP_DIST:
+            return False
+        self.encR(8)
+        self.is_clear()
+            for x in range
+        #loop 3 times
+        # turn 90 deg
+        # scan again
 
     def to_the_right(self):
         """subroutine of dance method"""
@@ -83,7 +95,8 @@ class Piggy(pigo.Pigo):
             self.encB(15)
 
     def hit_the_quan(self):
-        self.servo (90)
+        for x in range(3):
+            self.servo (90)
 
 
 
