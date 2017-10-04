@@ -65,23 +65,13 @@ class Piggy(pigo.Pigo):
             #self.hit_the_quan()
             #    self.walk_it_by_yourself()
     def safety_check(self):
-                """does a 3-point scan around the midpoint, returns false if a test fails"""
-                print("Running the is_clear method.")
-                for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
-                    self.servo(x)
-                    scan1 = self.dist()
-                    # double check the distance
-                    scan2 = self.dist()
-                    # if I found a different distance the second time....
-                    if abs(scan1 - scan2) > 2:
-                        scan3 = self.dist()
-                        # take another scan and average the three together
-                        scan1 = (scan1 + scan2 + scan3) / 3
-                    self.scan[x] = scan1
-                    print("Degree: " + str(x) + ", distance: " + str(scan1))
-                    if scan1 < self.SAFE_STOP_DIST:
-                        print("Doesn't look clear to me")
+                self.servo(self.MIDPOINT)  # Looks straight ahead
+                for x in range(4):
+                    if not self.is_clear():
                         return False
+                    print("Check Distance")
+                    self.encR(8)
+                print("Safe to dance!")
                 return True
 
 
