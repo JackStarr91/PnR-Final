@@ -64,12 +64,13 @@ class Piggy(pigo.Pigo):
             self.back_it_up()
             self.hit_the_quan()
             #    self.walk_it_by_yourself()
-    def safety_check(self):
-        self.servo(self.MIDPOINT)     # look straight ahead
-        if self.dist() < self.SAFE_STOP_DIST:
+    # def safety_check(self):
+        #self.servo(self.MIDPOINT)     # look straight ahead
+
+        #if self.dist() < self.SAFE_STOP_DIST:
             return False
-        self.encR(8)
-        self.is_clear()
+        #self.encR(8)
+        #self.is_clear()
 
         #loop 3 times
         # turn 90 deg
