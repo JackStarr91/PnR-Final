@@ -70,7 +70,7 @@ class Piggy(pigo.Pigo):
             return False
         self.encR(8)
         self.is_clear()
-       
+
         #loop 3 times
         # turn 90 deg
         # scan again
@@ -94,9 +94,8 @@ class Piggy(pigo.Pigo):
             self.encF(15)
             self.encB(15)
 
-    def hit_the_quan(self):
-        for x in range(3):
-            self.servo (90)
+    #def hit_the_quan(self):
+
 
 
 
