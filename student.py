@@ -41,7 +41,7 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
-                "c": ("Obstacle count", self.obstacle_count),
+                "o": ("Obstacle count", self.obstacle_count),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
                 }
@@ -69,7 +69,7 @@ class Piggy(pigo.Pigo):
                 if distance and distance > 200 and found_something:
                     found_something = False
                     counter += 1
-            print("\n----I SEE %d OBJECTS----\n" % counter)
+        print("\n----I SEE %d OBJECTS----\n" % counter)
 
 
 
