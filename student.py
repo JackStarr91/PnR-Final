@@ -48,6 +48,11 @@ class Piggy(pigo.Pigo):
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
+        """scans and estimates the number of obstacles within sight"""
+        self.wide_scan()
+        found_something = False
+
+        counter = 0
         # store the user's answer
         ans = raw_input("Your selection: ")
         # activate the item selected
@@ -57,10 +62,6 @@ class Piggy(pigo.Pigo):
 
     # YOU DECIDE: How does your GoPiggy dance?
     def obstacle_count(self):
-        """scans and estimates the number of obstacles within sight"""
-        self.wide_scan()
-        found_something = False
-
         counter = 0
         for distance in self.scan:
             if distance and distance < 80 and not found_something:
@@ -69,6 +70,15 @@ class Piggy(pigo.Pigo):
                 print("Object # %d found, I think" % counter)
             if distance and distance > 80 and found_something:
                 found_something = False
+
+        return counter
+
+    def circle_count(self):
+        count = 0
+        for x in range(4):
+            count += self.obstacle_count()
+            self.encR(6)
+
 
         print("\n----I SEE %d OBJECTS----\n" % counter)
 
