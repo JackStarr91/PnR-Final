@@ -48,11 +48,7 @@ class Piggy(pigo.Pigo):
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
-        """scans and estimates the number of obstacles within sight"""
-        self.wide_scan()
-        found_something = False
 
-        counter = 0
         # store the user's answer
         ans = raw_input("Your selection: ")
         # activate the item selected
@@ -61,30 +57,30 @@ class Piggy(pigo.Pigo):
 
 
     # YOU DECIDE: How does your GoPiggy dance?
-    def obstacle_count(self):
-        counter = 0
-        for distance in self.scan:
-            if distance and distance < 80 and not found_something:
-                counter += 1
-                found_something = True
-                print("Object # %d found, I think" % counter)
-            if distance and distance > 80 and found_something:
-                found_something = False
+        def circle_counting(self):
+            count = 0
+            for x in range(4):
+                count += self.obstacle_count()
+                self.encR(7)
+            print("\n----There are totally %d objects----\n" % count)
 
-        return counter
-
-    def circle_count(self):
-        count = 0
-        for x in range(4):
-            count += self.obstacle_count()
-            self.encR(6)
+        def obstacle_count(self):
+            """scans and estimates the number of obstacles within sight"""
+            self.wide_scan(3)
+            found_something = False
+            counter = 0
+            for distance in self.scan:
+                if distance and distance < 80 and not found_something:
+                    found_something = True
+                    counter += 1
+                    print("Object #%d found, I think" % counter)
+                if distance and distance > 70 and found_something:
+                    found_something = False
+            print("\n----I SEE %d OBJECT----\n" % counter)
+            return counter
 
 
         print("\n----I SEE %d OBJECTS----\n" % counter)
-
-
-
-
 
 
 
@@ -99,15 +95,16 @@ class Piggy(pigo.Pigo):
             self.back_it_up()
             #self.hit_the_quan()
             #    self.walk_it_by_yourself()
+
     def safety_check(self):
-                self.servo(self.MIDPOINT)  # Looks straight ahead
-                for x in range(4):
-                    if not self.is_clear():
-                        return False
-                    print("Check Distance")
-                    self.encR(8)
-                print("Safe to dance!")
-                return True
+        self.servo(self.MIDPOINT)  # Looks straight ahead
+        for x in range(4):
+            if not self.is_clear():
+                return False
+            print("Check Distance")
+            self.encR(8)
+        print("Safe to dance!")
+        return True
 
 
                 #loop 3 times
