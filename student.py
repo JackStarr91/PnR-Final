@@ -123,20 +123,26 @@ class Piggy(pigo.Pigo):
 
     #def hit_the_quan(self):
 
-
-
-
     def nav(self):
-        """auto pilots and attempts to maintain original heading"""
-        logging.debug("Starting the nav method")
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        print("-------- [ Press CTRL + C to stop me ] --------\n")
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        while True:
-            if self.is_clear():
-                self.cruise()
-            else:
-                self.encR(10)
+            """auto pilots and attempts to maintain original heading"""
+            logging.debug("Starting the nav method")
+            print("-----------! NAVIGATION ACTIVATED !------------\n")
+            print("-------- [ Press CTRL + C to stop me ] --------\n")
+            print("-----------! NAVIGATION ACTIVATED !------------\n")
+            while True:
+                if self.is_clear():
+                    self.cruise()
+                else:
+                    self.encR(8)
+                    if self.is_clear():
+                        self.cruise()
+                    else:
+                        self.encL(27)
+                        if self.is_clear():
+                            self.cruise()
+                            # check right and go right if clear
+
+                            # look left 2 times and then go
 
 
     def cruise(self):
