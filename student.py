@@ -57,30 +57,21 @@ class Piggy(pigo.Pigo):
 
 
     # YOU DECIDE: How does your GoPiggy dance?
-        def circle_counting(self):
-            count = 0
-            for x in range(4):
-                count += self.obstacle_count()
-                self.encR(7)
-            print("\n----There are totally %d objects----\n" % count)
-
-        def obstacle_count(self):
-            """scans and estimates the number of obstacles within sight"""
-            self.wide_scan(3)
+    def obstacle_count(self):
+        """scans and estimates the number of obstacles within sight"""
+        for x in range(4):
+            self.wide_scan()
             found_something = False
             counter = 0
             for distance in self.scan:
-                if distance and distance < 80 and not found_something:
+                if distance and distance < 60 and not found_something:
                     found_something = True
                     counter += 1
-                    print("Object #%d found, I think" % counter)
-                if distance and distance > 70 and found_something:
+                    print("Object # %d found, I think" % counter)
+                if distance and distance > 60 and found_something:
                     found_something = False
-            print("\n----I SEE %d OBJECT----\n" % counter)
-            return counter
-
-
-        print("\n----I SEE %d OBJECTS----\n" % counter)
+            print("\n----I SEE %d OBJECTS----\n" % counter)
+            self.encR(7)
 
 
 
