@@ -123,16 +123,20 @@ class Piggy(pigo.Pigo):
 
     #def hit_the_quan(self):
 
+
+#Robot should find a way to navigate forward without moving into an object
     def nav(self):
             """auto pilots and attempts to maintain original heading"""
             logging.debug("Starting the nav method")
             print("-----------! NAVIGATION ACTIVATED !------------\n")
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-----------! NAVIGATION ACTIVATED !------------\n")
+            #If the robot sees an opening, it can cruise/drive forward
             while True:
                 if self.is_clear():
                     self.cruise()
                 else:
+                    #I wish the robot could spin around until it finds an opening around the obstacles
                     self.encR(8)
                     if self.is_clear():
                         self.cruise()
@@ -145,7 +149,7 @@ class Piggy(pigo.Pigo):
                             # look left 2 times and then go
 
 
-    def cruise(self):
+    def cruise(self):  #used to drive straight when robot finds an opening with the farthest distance between the obstacles
         """ drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
