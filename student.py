@@ -146,7 +146,7 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     self.cruise()
                 else:
-                    """I wish the robot could spin around until it finds an opening around the obstacles"""
+                    #I wish the robot could spin around until it finds an opening around the obstacles
                     self.encR(10)
                     if self.is_clear():
                         self.cruise()
@@ -154,9 +154,9 @@ class Piggy(pigo.Pigo):
                         self.encL(25)
                         if self.is_clear():
                             self.cruise()
-                            """check right and go right if clear"""
+                            #check right and go right if clear
 
-                            """look left 2 times and then go"""
+                            #look left 2 times and then go
 
 
     def cruise(self):
@@ -164,7 +164,7 @@ class Piggy(pigo.Pigo):
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.5)
-            self.stop()
+        self.stop()
 
 ####################################################
 ############### STATIC FUNCTIONS
