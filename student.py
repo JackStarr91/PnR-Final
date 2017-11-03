@@ -44,6 +44,7 @@ class Piggy(pigo.Pigo):
                 "o": ("Obstacle count", self.obstacle_count),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
+                "t": ("Test restore heading", self.restore_heading) )
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -104,10 +105,37 @@ class Piggy(pigo.Pigo):
             self.encF(15)
             self.encB(15)
 
-    #def hit_the_quan(self):
+
 
 
 #Robot should find a way to navigate forward without moving into an object
+
+
+    def restore_heading(self):
+        """
+        Uses self.turn_track to reorient original heading
+        """
+        print("Restoring heading!")
+        if self.turn_track > 0:
+            self.encL(abs(self.turn_track))
+        elif self.turn_track < 0:
+            self.encR(abs(self.turn_track))
+
+    def test_restore_heading(self):
+        self.encR(5)
+        self.encL(15)
+        self.encR(10)
+        self.encR(10)
+        self.encL(7)
+        self.restore_heading()
+
+
+
+
+
+
+
+
     def nav(self):
             """auto pilots and attempts to maintain original heading"""
             logging.debug("Starting the nav method")
