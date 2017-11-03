@@ -41,10 +41,9 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
-                "o": ("Obstacle count", self.obstacle_count),
                 "s": ("Check status", self.status),
-                "q": ("Quit", quit_now)
-                "t": ("Test restore heading", self.restore_heading) )
+                "q": ("Quit", quit_now),
+                "t": ("Test restore heading", self.restore_heading)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
