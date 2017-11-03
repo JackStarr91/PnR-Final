@@ -141,12 +141,12 @@ class Piggy(pigo.Pigo):
             print("-----------! NAVIGATION ACTIVATED !------------\n")
             print("-------- [ Press CTRL + C to stop me ] --------\n")
             print("-----------! NAVIGATION ACTIVATED !------------\n")
-            #If the robot sees an opening, it can cruise/drive forward
+            """If the robot sees an opening, it can cruise/drive forward"""
             while True:
                 if self.is_clear():
                     self.cruise()
                 else:
-                    #I wish the robot could spin around until it finds an opening around the obstacles
+                    """I wish the robot could spin around until it finds an opening around the obstacles"""
                     self.encR(10)
                     if self.is_clear():
                         self.cruise()
@@ -154,12 +154,12 @@ class Piggy(pigo.Pigo):
                         self.encL(25)
                         if self.is_clear():
                             self.cruise()
-                            # check right and go right if clear
+                            """check right and go right if clear"""
 
-                            # look left 2 times and then go
+                            """look left 2 times and then go"""
 
 
-    def cruise(self):  #used to drive straight when robot finds an opening with the farthest distance between the obstacles
+    def cruise(self):  """used to drive straight when robot finds an opening with the farthest distance between the obstacles"""
         """ drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
