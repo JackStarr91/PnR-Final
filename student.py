@@ -159,7 +159,7 @@ class Piggy(pigo.Pigo):
                             """look left 2 times and then go"""
 
 
-    def cruise(self):  """used to drive straight when robot finds an opening with the farthest distance between the obstacles"""
+    def cruise(self):
         """drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
