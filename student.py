@@ -112,7 +112,7 @@ class Piggy(pigo.Pigo):
 
     def restore_heading(self):
         """
-        Uses self.turn_track to reorient original heading
+          Uses self.turn_track to reorient original heading
         """
         print("Restoring heading!")
         if self.turn_track > 0:
@@ -160,7 +160,7 @@ class Piggy(pigo.Pigo):
 
 
     def cruise(self):
-        """drive straight while path is clear"""
+        #drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.5)
