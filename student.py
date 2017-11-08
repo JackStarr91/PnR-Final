@@ -128,36 +128,24 @@ class Piggy(pigo.Pigo):
         self.encL(7)
         self.restore_heading()
 
-
-
-
-
-
-
-
     def nav(self):
-            """auto pilots and attempts to maintain original heading"""
-            logging.debug("Starting the nav method")
-            print("-----------! NAVIGATION ACTIVATED !------------\n")
-            print("-------- [ Press CTRL + C to stop me ] --------\n")
-            print("-----------! NAVIGATION ACTIVATED !------------\n")
-            """If the robot sees an opening, it can cruise/drive forward"""
-            while True:
+        """auto pilots and attempts to maintain original heading"""
+        logging.debug("Starting the nav method")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("-------- [ Press CTRL + C to stop me ] --------\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        while True:
+            if self.is_clear():
+                self.cruise()
+            else:
+                self.encR(7)
                 if self.is_clear():
-                    self.cruise()
-                else:
-                    #I wish the robot could spin around until it finds an opening around the obstacles
-                    self.encR(10)
-                    if self.is_clear():
-                        self.cruise()
-                    else:
-                        self.encL(25)   
-                        if self.is_clear():
-                            self.cruise()
-                            #check right and go right if clear
-
-                            #look left 2 times and then go
-
+                    continue
+                self.encL(9)
+                if self.is_clear():
+                    continue
+                self.encB(10)
+                # check right and go right if clear
 
     def cruise(self):
         #drive straight while path is clear"""
