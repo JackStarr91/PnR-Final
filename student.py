@@ -143,7 +143,7 @@ class Piggy(pigo.Pigo):
             print("-----------! NAVIGATION ACTIVATED !------------\n")
             """If the robot sees an opening, it can cruise/drive forward"""
             while True:
-                if self.is_clear():   
+                if self.is_clear():
                     self.cruise()
                 else:
                     #I wish the robot could spin around until it finds an opening around the obstacles
@@ -151,7 +151,7 @@ class Piggy(pigo.Pigo):
                     if self.is_clear():
                         self.cruise()
                     else:
-                        self.encL(25)
+                        self.encL(25)   
                         if self.is_clear():
                             self.cruise()
                             #check right and go right if clear
