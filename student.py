@@ -137,7 +137,7 @@ class Piggy(pigo.Pigo):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         right_now = datetime.datetime.utcnow()
-        difference = right_now - self.start_time).seconds
+        difference = (right_now - self.start_time).seconds
         print ("It took you &d seconds to run this" % difference)
         # I want my robot to navigate without stopping in the middle
         while True:
@@ -159,9 +159,9 @@ class Piggy(pigo.Pigo):
         self.servo(self.MIDPOINT)
         while True:
             if self.dist() > 100:
-            self.stop()
-        elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds=10):
-            self.stop()
+                self.stop()
+            elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds=10):
+                self.stop()
         time.sleep(.2)
 
     def cruise(self):
