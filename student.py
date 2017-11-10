@@ -138,7 +138,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         right_now = datetime.datetime.utcnow()
         difference = (right_now - self.start_time).seconds
-        print ("It took you &d seconds to run this" % difference)
+        print ("It took you %d seconds to run this" % difference)
         # I want my robot to navigate without stopping in the middle
         while True:
             if self.is_clear():
