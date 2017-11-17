@@ -18,6 +18,7 @@ class Piggy(pigo.Pigo):
         """The robot's constructor: sets variables and runs menu loop"""
         print("I have been instantiated!")
         self.start_time = datetime.datetime.utcnow()
+        self.next_right = True
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 83
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
@@ -36,6 +37,13 @@ class Piggy(pigo.Pigo):
         while True:
             self.stop()
             self.menu()
+
+    def switch_turn(self,enc):
+        if self.next_right:
+            self.encR(enc)
+        else
+            self.encL(enc)
+        self.next_right = not self.next_right
 
     def menu(self):
         """Displays menu dictionary, takes key-input and calls method"""
@@ -88,10 +96,10 @@ class Piggy(pigo.Pigo):
         # scan again
 
   #  def to_the_right(self):
-        """subroutine of dance method"""
-        for x in range(3):
-            self.encR(5)
-            self.encF(10)
+     #   """subroutine of dance method"""
+      #  for x in range(3):
+       #     self.encR(5)
+        #    self.encF(10)
 
     def to_the_left(self):
         for x in range(3):
@@ -144,10 +152,10 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             else:
-                self.encR(7)
+                self.switch_turn(9)
                 if self.is_clear():
                     continue
-                self.encL(9)
+                self.switch_turn(9)
                 if self.is_clear():
                     continue
                 self.encB(10)
