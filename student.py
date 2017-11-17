@@ -41,7 +41,7 @@ class Piggy(pigo.Pigo):
     def switch_turn(self,enc):
         if self.next_right:
             self.encR(enc)
-        else
+        else:
             self.encL(enc)
         self.next_right = not self.next_right
 
