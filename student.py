@@ -156,7 +156,7 @@ class Piggy(pigo.Pigo):
             else:
                 self.switch_turn(9)
                 count += 1
-                if count > 8:
+                if count > 4:
                     self.switch_turn(12)
 
 
