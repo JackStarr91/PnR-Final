@@ -148,18 +148,17 @@ class Piggy(pigo.Pigo):
         difference = (right_now - self.start_time).seconds
         print ("It took you %d seconds to run this" % difference)
         # I want my robot to navigate without stopping in the middle
+        count = 0
         while True:
             if self.is_clear():
+                count = 0
                 self.cruise()
             else:
                 self.switch_turn(9)
-                if self.is_clear():
-                    continue
-                self.switch_turn(9)
-                if self.is_clear():
-                    continue
-                self.encB(10)
-                # check right and go right if clear
+                count += 1
+                if count > 8:
+                    self.switch_turn(18)
+
 
     def smooth_turn(self):
         self.right_rot()
