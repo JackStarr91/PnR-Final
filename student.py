@@ -157,7 +157,7 @@ class Piggy(pigo.Pigo):
                 self.switch_turn(9)
                 count += 1
                 if count > 8:
-                    self.switch_turn(18)
+                    self.switch_turn(12)
 
 
     def smooth_turn(self):
