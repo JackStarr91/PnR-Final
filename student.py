@@ -157,7 +157,7 @@ class Piggy(pigo.Pigo):
                 self.switch_turn(9)
                 count += 1
                 if count > 2:
-                    self.switch_turn(10)
+                    self.switch_turn(13)
 
             #I want my robot to look twice on both sides for an opening, if it does not see one, I want the robot to make a wide switch_turn
 
@@ -177,7 +177,7 @@ class Piggy(pigo.Pigo):
         """drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.5)
+            time.sleep(.1)
         self.stop()
 
 ####################################################
