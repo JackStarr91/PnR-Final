@@ -159,6 +159,8 @@ class Piggy(pigo.Pigo):
                 if count > 2:
                     self.switch_turn(10)
 
+            #I want my robot to look twice on both sides for an opening, if it does not see one, I want the robot to make a wide switch_turn
+
 
     def smooth_turn(self):
         self.right_rot()
