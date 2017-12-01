@@ -157,7 +157,7 @@ class Piggy(pigo.Pigo):
                 self.switch_turn(9)
                 count += 1
                 if count > 2:
-                    self.switch_turn(13)
+                    self.switch_turn(12)
 
             #I want my robot to look twice on both sides for an opening, if it does not see one, I want the robot to make a wide switch_turn
 
@@ -171,7 +171,7 @@ class Piggy(pigo.Pigo):
                 self.stop()
             elif datetime.datetime.utcnow() - start > datetime.timedelta(seconds=10):
                 self.stop()
-        time.sleep(.2)
+        time.sleep(.1)
 
     def cruise(self):
         """drive straight while path is clear"""
