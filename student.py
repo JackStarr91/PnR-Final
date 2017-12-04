@@ -154,10 +154,10 @@ class Piggy(pigo.Pigo):
                 count = 0
                 self.cruise()
             else:
-                self.switch_turn(10)
+                self.switch_turn(9)
                 count += 1
                 if count > 2:
-                    self.switch_turn(13)
+                    self.switch_turn(12)
 
             #I want my robot to look twice on both sides for an opening, if it does not see one, I want the robot to make a wide switch_turn
 
