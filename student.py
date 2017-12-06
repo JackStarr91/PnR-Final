@@ -174,12 +174,18 @@ class Piggy(pigo.Pigo):
         time.sleep(.1)
 
     def cruise(self):
-        """drive straight while path is clear"""
         self.fwd()
-        while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.1)
+        while True:
+            self.servo(self.MIDPOINT)
+            if self.dist() < self.SAFE_STOP_DIST:
+                break
+            self.servo(self.MIDPOINT + 10):
+            if self.dist() < self.SAFE_STOP_DIST:
+                break
+            self.servo(self.MIDPOINT - 10):
+            if self.dist() < self.SAFE_STOP_DIST:
+                break
         self.stop()
-
 ####################################################
 ############### STATIC FUNCTIONS
 
