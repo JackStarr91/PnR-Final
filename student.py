@@ -58,7 +58,7 @@ class Piggy(pigo.Pigo):
         time.sleep(.5)
         dist = self.dist()
         self.servo(self.MIDPOINT)
-        return dist > self.HARD_STOP_DIST
+        return dist < self.HARD_STOP_DIST
 
     def something_to_my_left(self):
         self.servo(self.MIDPOINT + 40)
