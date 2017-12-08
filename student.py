@@ -42,20 +42,27 @@ class Piggy(pigo.Pigo):
         if self.next_right:
             if not self.something_to_my_right():
                 self.encR(enc)
+            else:
+                self.encB(2)
+
 
         else:
             if not self.something_to_my_left():
                 self.encL(enc)
+            else:
+                self.encB(2)
         self.next_right = not self.next_right
 
     def something_to_my_right(self):
         self.servo(self.MIDPOINT - 40)
+        time.sleep(.1)
         dist = self.dist()
         self.servo(self.MIDPOINT)
         return dist > self.HARD_STOP_DIST
 
     def something_to_my_left(self):
         self.servo(self.MIDPOINT + 40)
+        time.sleep(.1)
         dist = self.dist()
         self.servo(self.MIDPOINT)
         return dist > self.HARD_STOP_DIST
