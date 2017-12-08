@@ -40,10 +40,29 @@ class Piggy(pigo.Pigo):
 
     def switch_turn(self,enc):
         if self.next_right:
-            self.encR(enc)
+            if not self.something_to_my_right():
+                self.encR(enc)
+
         else:
-            self.encL(enc)
+            if not self.something_to_my_left():
+                self.encL(enc)
         self.next_right = not self.next_right
+
+    def something_to_my_right(self):
+        self.servo(self.MIDPOINT - 40)
+        dist = self.dist()
+        self.servo(self.MIDPOINT)
+        return dist > self.HARD_STOP_DIST
+
+    def something_to_my_left(self):
+        self.servo(self.MIDPOINT + 40)
+        dist = self.dist()
+        self.servo(self.MIDPOINT)
+        return dist > self.HARD_STOP_DIST
+
+
+
+
 
     def menu(self):
         """Displays menu dictionary, takes key-input and calls method"""
